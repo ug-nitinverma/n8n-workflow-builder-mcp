@@ -63,6 +63,7 @@ USER nodejs
 
 # Set Docker environment flag
 ENV IS_DOCKER=true
+ENV MCP_MODE=http
 
 # Expose HTTP port
 EXPOSE 3000
