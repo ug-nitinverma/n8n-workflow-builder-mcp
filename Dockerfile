@@ -9,7 +9,7 @@ WORKDIR /app
 COPY tsconfig.json ./
 
 # Create minimal package.json and install ONLY build dependencies
-RUN --mount=type=cache,target=/root/.npm \
+    RUN \ 
     echo '{}' > package.json && \
     npm install --no-save typescript@^5.8.3 @types/node@^22.15.30 @types/express@^5.0.3 \
         @modelcontextprotocol/sdk@^1.12.1 dotenv@^16.5.0 express@^5.1.0 axios@^1.10.0 \
