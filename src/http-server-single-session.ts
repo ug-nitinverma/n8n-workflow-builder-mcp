@@ -77,11 +77,14 @@ export class SingleSessionHTTPServer {
     // Update authToken to trimmed version
     if (this.authToken) {
   this.authToken = this.authToken.trim();
+      if (this.authToken.length < 32) {
+      logger.warn('AUTH_TOKEN should be at least 32 characters for security');
+    }    
 }
     
-    if (this.authToken.length < 32) {
-      logger.warn('AUTH_TOKEN should be at least 32 characters for security');
-    }
+
+
+    
   }
   
   /**
