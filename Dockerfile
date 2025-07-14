@@ -9,8 +9,7 @@ WORKDIR /app
 COPY tsconfig.json ./
 
 # Create minimal package.json and install ONLY build dependencies
-RUN \ 
-    echo '{}' > package.json && \
+RUN echo '{}' > package.json && \
     npm install --no-save typescript@^5.8.3 @types/node@^22.15.30 @types/express@^5.0.3 \
         @modelcontextprotocol/sdk@^1.12.1 dotenv@^16.5.0 express@^5.1.0 axios@^1.10.0 \
         n8n-workflow@^1.96.0 uuid@^11.0.5 @types/uuid@^10.0.0
@@ -33,8 +32,7 @@ RUN apk add --no-cache curl && \
 COPY package.runtime.json package.json
 
 # Install runtime dependencies with cache mount
-RUN \
-    npm install --production --no-audit --no-fund
+RUN npm install --production --no-audit --no-fund
 
 # Copy built application
 COPY --from=builder /app/dist ./dist
