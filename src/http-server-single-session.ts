@@ -297,7 +297,7 @@ export class SingleSessionHTTPServer {
       const token = authHeader.slice(7).trim();
       
       // Check if token matches
-      if (token !== this.authToken) {
+      if (this.authToken && token !== this.authToken) {
         logger.warn('Authentication failed: Invalid token', { 
           ip: req.ip,
           userAgent: req.get('user-agent'),
