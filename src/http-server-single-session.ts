@@ -66,12 +66,13 @@ export class SingleSessionHTTPServer {
   private validateEnvironment(): void {
     // Load auth token from env var or file
     this.authToken = this.loadAuthToken();
-    
+    /*
     if (!this.authToken || this.authToken.trim() === '') {
       const message = 'No authentication token found or token is empty. Set AUTH_TOKEN environment variable or AUTH_TOKEN_FILE pointing to a file containing the token.';
       logger.error(message);
       throw new Error(message);
     }
+    */
     
     // Update authToken to trimmed version
     this.authToken = this.authToken.trim();
